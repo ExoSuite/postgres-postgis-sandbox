@@ -3,8 +3,9 @@ version: "3"
 services:
   exosuite-users-api-postgres-standbox:
     restart: on-failure
-    image: mdillon/postgis:11-alpine
-    command: postgres -c 'max_connections=1000'
+    build:
+      context: ./
+    command: postgres -c 'max_connections=100000'
     ports:
       - 5432:5432
     container_name: exosuite-users-api-postgres-standbox
